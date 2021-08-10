@@ -47,6 +47,17 @@ will result in
 </span>
 ```
 
+map of all icons (useful for dynamic icon pick up):
+
+```ts
+import * as icons from '@transferwise/icons';
+
+const AchIcon = icons['Ach'];
+
+<AchIcon />
+<icons.Bank />
+```
+
 Each component has `className` property as well, so you can avoid wrapping your component in extra parent elements.
 ```jsx
 <BankIcon size={24} filled className="bank-profile-icon" />
