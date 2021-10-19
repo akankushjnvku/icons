@@ -1,3 +1,7 @@
+# v2.15.0
+
+## New Delivery icon 
+
 # v2.14.0
 
 ## New Request receive icon 
