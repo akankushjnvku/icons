@@ -1,3 +1,7 @@
+# v2.16.0
+
+## New Leaf icon 
+
 # v2.15.0
 
 ## New Delivery icon 
