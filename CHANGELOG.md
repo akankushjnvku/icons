@@ -1,3 +1,7 @@
+# v2.17.0
+
+## New auto-convert icon
+
 # v2.16.0
 
 ## New Leaf icon 
