@@ -1,3 +1,7 @@
+# v2.18.0
+
+## New calendar-success icon
+
 # v2.17.0
 
 ## New auto-convert icon
