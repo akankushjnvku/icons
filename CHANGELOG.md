@@ -1,3 +1,7 @@
+# v2.19.0
+
+## New Paypal icon 
+
 # v2.18.0
 
 ## New calendar-success icon
