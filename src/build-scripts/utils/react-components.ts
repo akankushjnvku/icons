@@ -31,7 +31,7 @@ export const ${icon.componentName}: FunctionComponent<${
       className={\`tw-icon tw-icon-${icon.name} \${className ? className : ''}\`}
       aria-hidden={!title ? 'true' : undefined}
       role={!title ? 'presentation' : undefined}
-      data-testid={restProps['data-testid']}
+      data-testid={restProps['data-testid'] || ${`'${icon.name}-icon'`}}
     >
       <svg width={String(size)} height={String(size)} fill="currentColor" focusable="false">
         { Number(size) === 16 ${hasFillVariant ? '&& filled === false' : ''} && (

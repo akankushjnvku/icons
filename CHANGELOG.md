@@ -1,3 +1,9 @@
+# v2.20.0
+
+## Generate default `data-testid` for each icon component based on icon name
+
+Only for React set.
+
 # v2.19.0
 
 ## New Paypal icon 
