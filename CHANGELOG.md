@@ -1,3 +1,7 @@
+# v2.21.0
+
+## New paperclip icon 
+
 # v2.20.0
 
 ## Generate default `data-testid` for each icon component based on icon name
