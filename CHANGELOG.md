@@ -1,3 +1,7 @@
+# v2.22.0
+
+## Add Slider icon
+
 # v2.21.0
 
 ## New paperclip icon 
