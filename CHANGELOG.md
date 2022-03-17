@@ -1,3 +1,7 @@
+# v2.23.0
+
+## Update Team icon
+
 # v2.22.0
 
 ## Add Slider icon
