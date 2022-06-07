@@ -9,6 +9,7 @@
   ],
   "types": "lib/index.d.ts",
   "scripts": {
+    "postinstall": "yarn-deduplicate",
     "build": "run-s build:*",
     "build:clean": "rimraf lib build && mkdir lib && mkdir -p build/components && mkdir -p build/angular/components",
     "build:icon-components": "yarn run build-icon-components",
@@ -43,6 +44,7 @@
     "react": "*"
   },
   "devDependencies": {
+    "yarn-deduplicate": "^5.0.0",
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@rollup/plugin-babel": "^5.0.4",
