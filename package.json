@@ -9,7 +9,7 @@
   ],
   "types": "lib/index.d.ts",
   "scripts": {
-    "postinstall": "yarn-deduplicate",
+    "yarn-lock-cleanup": "yarn-deduplicate",
     "build": "run-s build:*",
     "build:clean": "rimraf lib build && mkdir lib && mkdir -p build/components && mkdir -p build/angular/components",
     "build:icon-components": "yarn run build-icon-components",
