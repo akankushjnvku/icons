@@ -1,3 +1,7 @@
+# v2.23.1
+
+## Move yarn-deduplicate to scripts and update rollup-plugin-terser
+
 # v2.23.0
 
 ## Update Team icon
