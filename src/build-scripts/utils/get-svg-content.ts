@@ -1,6 +1,6 @@
 /* eslint-disable fp/no-mutation */
 import { parseSync, stringify, INode } from 'svgson';
-import SVGO from 'svgo';
+import { optimize } from 'svgo';
 import { Icon, readFile } from './index';
 
 interface SvgContent {
@@ -13,8 +13,6 @@ export interface SvgContentForVariantsAndSizes {
     [key: number]: SvgContent;
   };
 }
-
-const svgo = new SVGO();
 
 /**
  * Transform function that is applied for each node in the AST
@@ -31,7 +29,7 @@ const transformNode = (node: INode): INode => {
 // Read SVG file with svgson by parsing it into AST
 export const readSvgFile = async (path: string): Promise<SvgContent> => {
   const svgBefore = readFile(path);
-  const optimizedSvgContent = await svgo.optimize(svgBefore);
+  const optimizedSvgContent = await optimize(svgBefore);
 
   // Convert attributes to camelCase for React
   const ASTforReact = parseSync(optimizedSvgContent.data, { transformNode, camelcase: true });
