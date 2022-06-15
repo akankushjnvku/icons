@@ -1,3 +1,7 @@
+# v2.23.2
+
+## Update React to v17, NextJs to v12 and update Babel packages
+
 # v2.23.1
 
 ## Move yarn-deduplicate to scripts and update rollup-plugin-terser
