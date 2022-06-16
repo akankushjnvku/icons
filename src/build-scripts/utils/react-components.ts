@@ -1,5 +1,7 @@
-import { Icon, SvgContentForVariantsAndSizes, GENERATED_CODE_COMMENT, writeFile } from './index';
+/* eslint-disable sonarjs/no-nested-template-literals */
 import { IconsMap } from './create-icons-map';
+
+import { Icon, SvgContentForVariantsAndSizes, GENERATED_CODE_COMMENT, writeFile } from './index';
 
 export const createReactIconComponentContent = (
   icon: Icon,
@@ -71,7 +73,7 @@ export const ${icon.componentName}: FunctionComponent<${
 export const generateAdditionalReactFiles = (icons: IconsMap, targetDir: string): void => {
   // Create index file that exports all the icons in the components folder
   const exportComponents = Object.keys(icons)
-    .map(id => `export * from './${icons[id].name}';`)
+    .map((id) => `export * from './${icons[id].name}';`)
     .join('\n');
   writeFile(`${targetDir}/components/index.ts`, exportComponents);
 

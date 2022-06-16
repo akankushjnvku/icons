@@ -2,7 +2,6 @@ module.exports = {
   plugins:
     process.env.NODE_ENV === 'production'
       ? [
-          'postcss-flexbugs-fixes',
           [
             'postcss-preset-env',
             {
@@ -15,14 +14,8 @@ module.exports = {
               },
             },
           ],
-          [  
-            'postcss-url',
-            {
-              url: (asset, dir) => `/icons${asset.url}`
-            }
-          ],
         ]
       : [
           // No transformations in development
         ],
-}
+};

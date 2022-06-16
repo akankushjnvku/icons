@@ -1,19 +1,24 @@
 {
-  "extends": ["plugin:react/recommended", "plugin:@typescript-eslint/recommended", "@transferwise"],
-  "plugins": ["@typescript-eslint"],
-  "parser": "@typescript-eslint/parser",
+  "extends": ["@transferwise"],
   "parserOptions": {
-    "ecmaVersion": 2018,
-    "project": "./tsconfig.scripts.json",
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
+    "project": [
+      "./tsconfig.json"
+    ]
   },
   "rules": {
     "import/no-extraneous-dependencies": "off",
     "import/no-unresolved": "off",
     "import/extensions": "off",
     "react/prop-types": [0]
-  }
+  },
+  "ignorePatterns": [
+    "build/**/*",
+    "lib/**/*",
+    "pages/**/*",
+    "src-demo/**/*",
+    "*.d.ts",
+    "public/**/*",
+    "next.config.js",
+    "postcss.config.js"
+  ]
 }

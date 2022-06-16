@@ -11,9 +11,9 @@ export interface Icon {
   name: string;
   oldName?: string;
   componentName: string;
-  sizes: number[];
+  sizes: string[];
   svgFiles: {
-    [key: string]: { [key: number]: string };
+    [key: string]: { [key: string]: string };
   };
 }
 
@@ -39,6 +39,6 @@ export const writeFile = (path: string, content: string): void => {
  * @param name kebab-case string
  */
 export const createIconComponentName = (name: string): string => {
-  const fragments = name.split('-').map(f => capitalizeFirstLetter(f));
+  const fragments = name.split('-').map((f) => capitalizeFirstLetter(f));
   return fragments.join('');
 };

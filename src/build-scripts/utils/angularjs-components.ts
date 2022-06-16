@@ -1,5 +1,7 @@
-import { Icon, SvgContentForVariantsAndSizes, GENERATED_CODE_COMMENT, writeFile } from './index';
+/* eslint-disable sonarjs/no-nested-template-literals */
 import { IconsMap } from './create-icons-map';
+
+import { Icon, SvgContentForVariantsAndSizes, GENERATED_CODE_COMMENT, writeFile } from './index';
 
 const getTemplate = (
   icon: Icon,
@@ -59,7 +61,7 @@ export const generateAngularJsIconModuleContent = (icons: IconsMap, targetDir: s
   const importStatements = [];
   const moduleComponents = [];
 
-  Object.keys(icons).forEach(key => {
+  Object.keys(icons).forEach((key) => {
     const icon = icons[key];
     importStatements.push(
       `import { ${icon.componentName}IconComponent } from "./components/${key}-icon.component"`,
@@ -86,7 +88,7 @@ export const TwIconsModule = angular
 
 export const generateGeneralIconComponent = (icons: IconsMap, targetDir: string): void => {
   const components = Object.keys(icons).map(
-    key =>
+    (key) =>
       `<tw-${key}-icon ng-switch-when="${key}" filled="$ctrl.filled" size="$ctrl.size"></tw-${key}-icon>`,
   );
 

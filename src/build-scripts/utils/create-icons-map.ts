@@ -1,24 +1,16 @@
 /* eslint-disable fp/no-mutation */
 import { createIconComponentName, writeFile, Icon } from './index';
 
-const OLD_ICON_NAMES_MAP = {
-  more: 'pips',
-  cross: 'close',
-  'chevron-left': 'left',
-  'chevron-right': 'right',
-  checkcircle: 'tickcircle',
-  plus: 'topup',
-  check: 'tick',
-};
+const OLD_ICON_NAMES_MAP = {};
 
 export interface IconsMap {
   [key: string]: Icon;
 }
 
-export const createIconsMap = (paths): IconsMap => {
+export const createIconsMap = (paths: string[]): IconsMap => {
   const icons: IconsMap = {};
 
-  paths.forEach(path => {
+  paths.forEach((path) => {
     // TODO: validate icon name and meta data (svg file name) to follow convention
     const pathFragments = path.split('/');
     const name = pathFragments[2];
@@ -29,6 +21,7 @@ export const createIconsMap = (paths): IconsMap => {
     if (!icons[name]) {
       icons[name] = {
         name,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         oldName: OLD_ICON_NAMES_MAP[name],
         componentName: createIconComponentName(name),
         sizes: [size],

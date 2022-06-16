@@ -1,3 +1,9 @@
+# v2.23.3
+
+## Update ESLint, ESLint configs/rules, along with PostCSS
+
+Fix some of new ESLint violations in code.
+
 # v2.23.2
 
 ## Update React to v17, NextJs to v12 and update Babel packages
