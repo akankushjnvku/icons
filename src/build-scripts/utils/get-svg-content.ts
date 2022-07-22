@@ -1,3 +1,4 @@
+/* eslint-disable fp/no-mutation */
 import { optimize, OptimizedSvg } from 'svgo';
 import { parseSync, stringify, INode } from 'svgson';
 
@@ -9,9 +10,7 @@ interface SvgContent {
 }
 
 export interface SvgContentForVariantsAndSizes {
-  [key: string]: {
-    [key: number]: SvgContent;
-  };
+  [key: string]: SvgContent;
 }
 
 /**
@@ -27,10 +26,10 @@ const transformNode = (node: INode): INode => {
 };
 
 // Read SVG file with svgson by parsing it into AST
+// eslint-disable-next-line @typescript-eslint/require-await
 export const readSvgFile = async (path: string): Promise<SvgContent> => {
   const svgBefore = readFile(path);
-  // eslint-disable-next-line @typescript-eslint/await-thenable
-  const optimizedSvgContent = (await optimize(svgBefore)) as OptimizedSvg;
+  const optimizedSvgContent = optimize(svgBefore) as OptimizedSvg;
 
   // Convert attributes to camelCase for React
   const ASTforReact = parseSync(optimizedSvgContent.data, { transformNode, camelcase: true });
@@ -47,27 +46,10 @@ export const readSvgFile = async (path: string): Promise<SvgContent> => {
 };
 
 // get content for each variant and size
-/* eslint-disable @typescript-eslint/await-thenable */
 export const getSvgContent = async (icon: Icon): Promise<SvgContentForVariantsAndSizes> => {
-  const variants = Object.keys(icon.svgFiles);
   const svgContentForVariantsAndSizes: SvgContentForVariantsAndSizes = {};
 
-  // eslint-disable-next-line @typescript-eslint/no-misused-promises
-  await variants.forEach(async (variant) => {
-    const sizes = Object.keys(icon.svgFiles[variant]);
-    // eslint-disable-next-line fp/no-mutation
-    svgContentForVariantsAndSizes[variant] = {};
-
-    // eslint-disable-next-line @typescript-eslint/no-misused-promises
-    await sizes.forEach(async (size) => {
-      // eslint-disable-next-line fp/no-mutation
-      svgContentForVariantsAndSizes[variant][size] = await readSvgFile(
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        icon.svgFiles[variant][size],
-      );
-    });
-  });
+  svgContentForVariantsAndSizes[icon.name] = await readSvgFile(icon.svgFiles[icon.name]);
 
   return svgContentForVariantsAndSizes;
 };
-/* eslint-enable @typescript-eslint/await-thenable */

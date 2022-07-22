@@ -1,40 +1,17 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable sonarjs/no-nested-template-literals */
 import { IconsMap } from './create-icons-map';
 
 import { Icon, SvgContentForVariantsAndSizes, GENERATED_CODE_COMMENT, writeFile } from './index';
 
-const getTemplate = (
-  icon: Icon,
-  hasFillVariant: boolean,
-  svgContent: SvgContentForVariantsAndSizes,
-): string => {
-  if (hasFillVariant) {
-    return `
-<span ng-switch="$ctrl.size" ng-if="!$ctrl.filled" class="tw-icon tw-icon-${icon.name}">
-  <svg ng-switch-when="24" width="24" height="24" fill="currentColor">
-    ${svgContent.outline[24].angular}
-  </svg>
-  <svg ng-switch-default width="16" height="16" fill="currentColor">
-    ${svgContent.outline[16].angular}
-  </svg>
-</span>
-<span ng-switch="$ctrl.size" ng-if="$ctrl.filled" class="tw-icon tw-icon-${icon.name}">
-  <svg ng-switch-when="24" width="24" height="24" fill="currentColor">
-    ${svgContent.fill[24].angular}
-  </svg>
-  <svg ng-switch-default width="16" height="16" fill="currentColor">
-    ${svgContent.fill[16].angular}
-  </svg>
-</span>`;
-  }
-
+const getTemplate = (icon: Icon, svgContent: SvgContentForVariantsAndSizes): string => {
   return `
-  <span ng-switch="$ctrl.size" ng-if="!$ctrl.filled" class="tw-icon tw-icon-${icon.name}">
-    <svg ng-switch-when="24" width="24" height="24" fill="currentColor">
-      ${svgContent.outline[24].angular}
+  <span ng-switch="$ctrl.size" class="tw-icon tw-icon-${icon.name}">
+    <svg ng-switch-when="24" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      ${svgContent[icon.name].angular}
     </svg>
-    <svg ng-switch-default width="16" height="16" fill="currentColor">
-      ${svgContent.outline[16].angular}
+    <svg ng-switch-default width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      ${svgContent[icon.name].angular}
     </svg>
   </span>
   `;
@@ -44,16 +21,10 @@ export const createAngularJsIconComponentContent = (
   icon: Icon,
   svgContent: SvgContentForVariantsAndSizes,
 ): string => {
-  const variants = Object.keys(icon.svgFiles);
-  const hasFillVariant = variants.length > 1;
-
   return `
 ${GENERATED_CODE_COMMENT}
 export const ${icon.componentName}IconComponent = {
-  bindings: {
-    size: "<", ${hasFillVariant ? `\nfilled: "<",` : ''}
-  },
-  template: \`${getTemplate(icon, hasFillVariant, svgContent)}\`,
+  template: \`${getTemplate(icon, svgContent)}\`,
 }`;
 };
 
@@ -88,8 +59,7 @@ export const TwIconsModule = angular
 
 export const generateGeneralIconComponent = (icons: IconsMap, targetDir: string): void => {
   const components = Object.keys(icons).map(
-    (key) =>
-      `<tw-${key}-icon ng-switch-when="${key}" filled="$ctrl.filled" size="$ctrl.size"></tw-${key}-icon>`,
+    (key) => `<tw-${key}-icon ng-switch-when="${key}" size="$ctrl.size"></tw-${key}-icon>`,
   );
 
   const content = `
@@ -97,7 +67,6 @@ export const generateGeneralIconComponent = (icons: IconsMap, targetDir: string)
   bindings: {
     name: '<',
     size: '<',
-    filled: '<',
   },
   template: \`
     <ng-switch on="$ctrl.name">

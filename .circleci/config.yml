@@ -52,6 +52,7 @@ jobs:
             git config --global user.email "circleci@transferwise.com"
             git config --global user.name "CircleCI"
             yarn demo:deploy
+
   release:
     <<: *defaults
     steps:

@@ -6,10 +6,8 @@ import { Icon, SvgContentForVariantsAndSizes, GENERATED_CODE_COMMENT, writeFile 
 export const createReactIconComponentContent = (
   icon: Icon,
   svgContent: SvgContentForVariantsAndSizes,
+  hasFillVariant: boolean,
 ): string => {
-  const variants = Object.keys(icon.svgFiles);
-  const hasFillVariant = variants.length > 1;
-
   return `
 ${GENERATED_CODE_COMMENT}
 import React, { FunctionComponent } from 'react';
@@ -17,7 +15,7 @@ import { IconSize } from '../types';
 
 export interface ${icon.componentName}IconProps {
   size?: IconSize;
-  ${hasFillVariant ? `filled?: boolean;` : ''}
+  filled?: boolean;
   className?: string;
   title?: string;
   ['data-testid']?: string;
@@ -25,9 +23,14 @@ export interface ${icon.componentName}IconProps {
 
 export const ${icon.componentName}: FunctionComponent<${
     icon.componentName
-  }IconProps> = ({ size = 16, className = undefined, title = undefined ${
-    hasFillVariant ? `, filled = false` : ''
+  }IconProps> = ({ size = 24, className = undefined, title = undefined ${
+    hasFillVariant ? `, filled = true` : ', filled = false'
   }, ...restProps }) => {
+  
+  if (filled) {
+    console.warn("this is not how filled variants work anymore. see https://transferwise.atlassian.net/wiki/spaces/DS/pages/2448396427/New+icons#Web for more details");
+  }
+
   return (
     <span
       className={\`tw-icon tw-icon-${icon.name} \${className ? className : ''}\`}
@@ -35,33 +38,19 @@ export const ${icon.componentName}: FunctionComponent<${
       role={!title ? 'presentation' : undefined}
       data-testid={restProps['data-testid'] || ${`'${icon.name}-icon'`}}
     >
-      <svg width={String(size)} height={String(size)} fill="currentColor" focusable="false">
-        { Number(size) === 16 ${hasFillVariant ? '&& filled === false' : ''} && (
+      <svg width={String(size)} height={String(size)} fill="currentColor" focusable="false"
+      viewBox="0 0 24 24"
+      >
+        { Number(size) === 16 && (
           <>
-            ${svgContent.outline[16].react}
+            ${svgContent[icon.name].react}
           </>
         )}
-        { Number(size) === 24 ${hasFillVariant ? '&& filled === false' : ''} && (
+        { Number(size) === 24 && (
           <>
-            ${svgContent.outline[24].react}
+            ${svgContent[icon.name].react}
           </>
         )}
-        ${
-          hasFillVariant
-            ? `
-          { Number(size) === 16 && filled && (
-            <>
-              ${svgContent.fill[16].react}
-            </>
-          )}
-          { Number(size) === 24 && filled && (
-            <>
-              ${svgContent.fill[24].react}
-            </>
-          )}
-        `
-            : ''
-        }
       </svg>
       { title && <span className="sr-only">{title}</span> }
     </span>

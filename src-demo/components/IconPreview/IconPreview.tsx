@@ -4,10 +4,10 @@ import styles from './IconPreview.module.css';
 
 interface IconPreviewProps {
   name: string;
-  oldName: string;
+  oldName?: string;
   color: string;
   icon: React.ReactElement;
-  badges: Badge[];
+  badges?: Badge[];
 }
 
 const RADIUS = 4;

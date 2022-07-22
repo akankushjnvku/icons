@@ -5,15 +5,15 @@ export * from './get-svg-content';
 export * from './react-components';
 export * from './angularjs-components';
 
-export const GENERATED_CODE_COMMENT = `// This is an automatically generetad file, please don't edit it`;
+export const GENERATED_CODE_COMMENT = `// This is an automatically generated file, please don't edit it`;
 
 export interface Icon {
   name: string;
   oldName?: string;
   componentName: string;
-  sizes: string[];
-  svgFiles: {
-    [key: string]: { [key: string]: string };
+  sizes?: number[];
+  svgFiles?: {
+    [key: string]: string;
   };
 }
 

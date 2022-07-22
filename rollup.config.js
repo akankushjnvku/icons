@@ -60,4 +60,8 @@ const cssBundle = {
   plugins: [css({ dest: 'lib/styles/main.css', raw: false })],
 };
 
-export default [reactBundle, angularBundle, cssBundle];
+export default [
+  reactBundle,
+  angularBundle,
+  cssBundle,
+];

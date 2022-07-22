@@ -10,7 +10,7 @@ import styles from './Demo.module.css';
 import { Legend } from '../Legend/Legend';
 
 const { publicRuntimeConfig } = getConfig();
-const TW_COLORS = ['#37517e', '#6f8691', '#00b9ff'];
+const TW_COLORS = ['#37517e', '#5d7079', '#0097c7'];
 
 const ControlGroup = ({ label, children }) => {
   return (
@@ -22,8 +22,6 @@ const ControlGroup = ({ label, children }) => {
 };
 
 export const Demo: FunctionComponent = () => {
-  const [size, setSize] = useState<number>(24);
-  const [isFilled, setFill] = useState<boolean>(true);
   const [color, setColor] = useState<string>(TW_COLORS[0]);
 
   return (
@@ -39,34 +37,13 @@ export const Demo: FunctionComponent = () => {
         <ControlGroup label="Color">
           <CirclePicker color={color} colors={TW_COLORS} onChange={c => setColor(c.hex)} />
         </ControlGroup>
-        <ControlGroup label="Size">
-          <div className="btn-group">
-            <button
-              type="button"
-              className={`btn btn-default ${size === 16 ? 'active' : ''}`}
-              onClick={() => setSize(16)}
-            >
-              16px
-            </button>
-            <button
-              type="button"
-              className={`btn btn-default ${size === 24 ? 'active' : ''}`}
-              onClick={() => setSize(24)}
-            >
-              24px
-            </button>
-          </div>
-        </ControlGroup>
-        <ControlGroup label="Filled icons">
-          <button type="button" className="btn btn-default" onClick={() => setFill(!isFilled)}>
-            {isFilled ? 'Hide' : 'Show'}
-          </button>
-        </ControlGroup>
+        <ControlGroup label="Number of icons">{Object.keys(iconsMetaData).length}</ControlGroup>
         <ControlGroup label="Legend">
           <Legend
+            key={"legend"}
             items={[
-              { color: '#00b9ff', label: 'has filled variant'},
-              { color: '#f53636', label: 'new name in v2'},
+              { color: '#00b9ff', label: 'has alternate filled icon'},
+              { color: '#f53636', label: 'backwards compatibility from v2'},
             ]}
           />
         </ControlGroup>
@@ -74,16 +51,17 @@ export const Demo: FunctionComponent = () => {
 
       <div className={styles['icons-container']}>
         {Object.keys(iconsMetaData).map(key => {
-          const { componentName, name, oldName } = iconsMetaData[key];
+          const { componentName, name } = iconsMetaData[key];
           const Icon = iconComponents[componentName];
-          const badges = generateBadges(iconsMetaData[key]);
+          const hasFilledVariant: boolean = Object.keys(iconsMetaData).includes(key + '-fill')
+          
+          const badges = generateBadges(hasFilledVariant, iconsMetaData[key].oldName);
 
           return (
             <IconPreview
               key={name}
-              icon={<Icon size={size} filled={isFilled} />}
+              icon={<Icon/>}
               name={name}
-              oldName={oldName}
               color={color}
               badges={badges}
             />

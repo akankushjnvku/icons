@@ -1,6 +1,6 @@
 {
   "name": "@transferwise/icons",
-  "version": "2.23.3",
+  "version": "3.0.0",
   "description": "Wise SVG icons",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -17,6 +17,7 @@
     "build:rollup": "rollup -c",
     "demo:build": "next build && next export -o demo && touch demo/.nojekyll",
     "demo:deploy": "gh-pages -d demo -t true",
+    "deploy-docs": "deploy-to-github-pages -d demo -m main -b ve",
     "rollup:watch": "rollup -cw",
     "dev-demo": "next dev",
     "test": "run-s test:*",
@@ -44,19 +45,20 @@
     "react": "*"
   },
   "devDependencies": {
-    "yarn-deduplicate": "^5.0.0",
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
     "@rollup/plugin-babel": "^5.3.1",
     "@transferwise/eslint-config": "^8.0.1",
-    "@types/node": "^13.7.7",
+    "@types/glob": "^7.2.0",
+    "@types/node": "^13.13.52",
     "@types/react": "^17.0.2",
     "@types/react-color": "^3.0.1",
+    "@types/svgo": "^2.6.3",
     "autoprefixer": "^10.4.7",
+    "deploy-to-github-pages": "^1.0.1",
     "eslint": "^8.17.0",
     "gh-pages": "^2.2.0",
     "glob": "^7.1.6",
-    "@types/glob": "^7.2.0",
     "next": "^12.1.6",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.14",
@@ -72,11 +74,12 @@
     "rollup-plugin-css-porter": "^1.0.2",
     "rollup-plugin-terser": "^5.2.0",
     "rollup-plugin-typescript2": "^0.26.0",
-    "@types/svgo": "^2.6.3",
     "svgo": "^2.8.0",
     "svgson": "^4.0.0",
     "ts-node": "^8.6.2",
-    "typescript": "^4.7.3"
+    "typescript": "^4.7.3",
+    "wise-atoms": "git+ssh://git@github.com:transferwise/wise-atoms.git#3849afa07d09754466d7a425a6547b61f19a5650",
+    "yarn-deduplicate": "^5.0.0"
   },
   "resolutions": {
     "json-schema": "^0.4.0"
