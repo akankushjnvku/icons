@@ -1,3 +1,13 @@
+# v3.0.0
+
+## feat!: adds our new brand refresh icons from wise-atoms
+
+Here is the first release for the new brand refresh, this release includes a new change to our icon components which are not completely updated via our `wise-atoms` package.
+
+- Icons are now by default set to a value of `24px` in size, and retains the ability to go to `16px`
+- `filled` icons are now depricated, with the new brand refresh we have a smaller subset of filled icons to use. We have added a new key to show which components now have a filled variant
+- Icon renames, many icons now follow a whole new naming convention. But don't worry we also have backwards compatabilty to allow the usage of our old names. You'll also be able to see in our docs page which icons have a `v2` version supported.
+
 # v2.23.3
 
 ## Update ESLint, ESLint configs/rules, along with PostCSS
