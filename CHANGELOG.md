@@ -1,3 +1,7 @@
+# v3.0.1
+
+## Fixing build output
+
 # v3.0.0
 
 ## feat!: adds our new brand refresh icons from wise-atoms
