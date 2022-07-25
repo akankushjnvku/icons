@@ -1,3 +1,7 @@
+# v3.0.2
+
+## Add backwards compatibility for FacebookSquare and SoftwareAndWebHosting icons
+
 # v3.0.1
 
 ## Fixing build output
