@@ -59,6 +59,8 @@ const OLD_ICON_NAMES_MAP = {
   balance: 'bar-chart',
   investments: 'bar-chart',
   verified: 'check',
+  'facebook-square': 'facebook',
+  'software-and-web-hosting': 'software-and-hosting',
 };
 
 export interface IconsMap {
