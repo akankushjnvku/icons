@@ -1,6 +1,6 @@
 {
   "name": "@transferwise/icons",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Wise SVG icons",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -26,7 +26,7 @@
     "lint": "eslint 'src/build-scripts/**/*.{ts,tsx}'",
     "lint-fix": "yarn run lint --fix",
     "prettier": "prettier './build/**/*.{ts,tsx,js}'",
-    "release-to-github": "release-to-github-with-changelog",
+    "release-to-github": "release-to-github-with-changelog --branch=main",
     "build-icon-components": "ts-node --project ./tsconfig.scripts.json src/build-scripts/build-icon-components.ts"
   },
   "repository": {

@@ -1,3 +1,7 @@
+# v3.0.3
+
+## release has been broken since we switched to Main. this should fix it
+
 # v3.0.2
 
 ## Add backwards compatibility for FacebookSquare and SoftwareAndWebHosting icons
