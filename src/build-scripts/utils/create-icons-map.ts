@@ -21,7 +21,7 @@ const OLD_ICON_NAMES_MAP = {
   tax: 'percentage-circle',
   recipients: 'people',
   marketing: 'target',
-  'drivers-licence': 'car',
+  'drivers-license': 'car',
   'pin-code': 'dial',
   rent: 'building',
   unlock: 'padlock-unlocked',
