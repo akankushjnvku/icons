@@ -11,7 +11,7 @@ export interface Icon {
   name: string;
   oldName?: string;
   componentName: string;
-  sizes?: number[];
+  sizes?: string[];
   svgFiles?: {
     [key: string]: string;
   };

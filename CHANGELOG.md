@@ -1,6 +1,11 @@
+# v3.0.4
+
+## Change size prop of icons to be a string again instead of a number. Will fix bug with Angular icons
+
+
 # v3.0.3
 
-## release has been broken since we switched to Main. this should fix it
+## Release has been broken since we switched to Main. This should fix it
 
 # v3.0.2
 
