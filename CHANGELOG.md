@@ -1,7 +1,10 @@
+# v3.0.5
+
+## It probably wasn't the the string/number change. The whole size prop had been deleted from Angular icons
+
 # v3.0.4
 
 ## Change size prop of icons to be a string again instead of a number. Will fix bug with Angular icons
-
 
 # v3.0.3
 

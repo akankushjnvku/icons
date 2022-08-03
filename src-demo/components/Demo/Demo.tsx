@@ -23,6 +23,7 @@ const ControlGroup = ({ label, children }) => {
 
 export const Demo: FunctionComponent = () => {
   const [color, setColor] = useState<string>(TW_COLORS[0]);
+  const [size, setSize] = useState<number>(24);
 
   return (
     <main className={styles.container}>
@@ -34,6 +35,24 @@ export const Demo: FunctionComponent = () => {
         <div className={styles.subheader}>{publicRuntimeConfig.libVersion}</div>
       </div>
       <div className={styles.controls}>
+      <ControlGroup label="Size">
+          <div className="btn-group">
+            <button
+              type="button"
+              className={`btn btn-default ${size === 16 ? 'active' : ''}`}
+              onClick={() => setSize(16)}
+            >
+              16px
+            </button>
+            <button
+              type="button"
+              className={`btn btn-default ${size === 24 ? 'active' : ''}`}
+              onClick={() => setSize(24)}
+            >
+              24px
+            </button>
+          </div>
+        </ControlGroup>
         <ControlGroup label="Color">
           <CirclePicker color={color} colors={TW_COLORS} onChange={c => setColor(c.hex)} />
         </ControlGroup>
@@ -60,7 +79,7 @@ export const Demo: FunctionComponent = () => {
           return (
             <IconPreview
               key={name}
-              icon={<Icon/>}
+              icon={<Icon size={size}/>}
               name={name}
               color={color}
               badges={badges}

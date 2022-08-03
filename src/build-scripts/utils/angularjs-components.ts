@@ -25,6 +25,9 @@ export const createAngularJsIconComponentContent = (
 ${GENERATED_CODE_COMMENT}
 export const ${icon.componentName}IconComponent = {
   template: \`${getTemplate(icon, svgContent)}\`,
+  bindings: {
+    size: "<"
+  },
 }`;
 };
 
