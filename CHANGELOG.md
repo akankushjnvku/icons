@@ -1,3 +1,7 @@
+# v3.0.6
+
+## Default icon size for react icons should be 16px, not 24px
+
 # v3.0.5
 
 ## It probably wasn't the the string/number change. The whole size prop had been deleted from Angular icons
