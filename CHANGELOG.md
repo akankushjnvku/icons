@@ -1,3 +1,7 @@
+# v3.0.7
+
+## Removes console.warn message link to wiki page
+
 # v3.0.6
 
 ## Default icon size for react icons should be 16px, not 24px

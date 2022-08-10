@@ -28,7 +28,9 @@ export const ${icon.componentName}: FunctionComponent<${
   }, ...restProps }) => {
   
   if (filled) {
-    console.warn("this is not how filled variants work anymore. see https://transferwise.atlassian.net/wiki/spaces/DS/pages/2448396427/New+icons#Web for more details");
+    console.warn("<${icon.componentName} filled /> is now deprecated, please use <${
+    icon.componentName
+  }Fill /> or refer to https://transferwise.github.io/icons/ for more info.");
   }
 
   return (
