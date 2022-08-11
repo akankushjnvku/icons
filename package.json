@@ -72,7 +72,7 @@
     "rollup": "^1.32.0",
     "rollup-plugin-analyzer": "^3.2.2",
     "rollup-plugin-css-porter": "^1.0.2",
-    "rollup-plugin-terser": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.26.0",
     "svgo": "^2.8.0",
     "svgson": "^4.0.0",
