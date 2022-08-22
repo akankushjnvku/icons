@@ -22,8 +22,7 @@ const generateIconComponentFiles = (): void => {
   Object.keys(icons).forEach(async (id) => {
     const icon = icons[id];
     const svgContent = await getSvgContent(icon);
-    const hasFillVariant = Object.keys(icons).includes(icon.name + '-fill');
-    const reactComponentContent = createReactIconComponentContent(icon, svgContent, hasFillVariant);
+    const reactComponentContent = createReactIconComponentContent(icon, svgContent);
     writeFile(`${TARGET_DIR}/components/${icon.name}.tsx`, reactComponentContent);
 
     const angularComponentContent = createAngularJsIconComponentContent(icon, svgContent);

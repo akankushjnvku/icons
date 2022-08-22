@@ -1,3 +1,7 @@
+# v3.0.8
+
+## This console.warn is a mess! Now it only warns when the filled prop is there, not whenever there's a filled alternative
+
 # v3.0.7
 
 ## Removes console.warn message link to wiki page
@@ -60,7 +64,7 @@ Fix some of new ESLint violations in code.
 
 # v2.21.0
 
-## New paperclip icon 
+## New paperclip icon
 
 # v2.20.0
 
@@ -70,7 +74,7 @@ Only for React set.
 
 # v2.19.0
 
-## New Paypal icon 
+## New Paypal icon
 
 # v2.18.0
 
@@ -82,15 +86,15 @@ Only for React set.
 
 # v2.16.0
 
-## New Leaf icon 
+## New Leaf icon
 
 # v2.15.0
 
-## New Delivery icon 
+## New Delivery icon
 
 # v2.14.0
 
-## New Request receive icon 
+## New Request receive icon
 
 # v2.13.0
 
@@ -109,6 +113,7 @@ Only for React set.
 ## New version of icon for Wise Card icon
 
 New Icon usage
+
 ```js
 // Angular
 <tw-card-wise />
@@ -130,6 +135,7 @@ New Icon usage
 # v2.9.0
 
 ## Add Business category icons
+
 - `contract-services`
 - `cost-of-goods-sold`
 - `insurance`

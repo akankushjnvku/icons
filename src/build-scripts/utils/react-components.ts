@@ -6,7 +6,6 @@ import { Icon, SvgContentForVariantsAndSizes, GENERATED_CODE_COMMENT, writeFile 
 export const createReactIconComponentContent = (
   icon: Icon,
   svgContent: SvgContentForVariantsAndSizes,
-  hasFillVariant: boolean,
 ): string => {
   return `
 ${GENERATED_CODE_COMMENT}
@@ -23,9 +22,7 @@ export interface ${icon.componentName}IconProps {
 
 export const ${icon.componentName}: FunctionComponent<${
     icon.componentName
-  }IconProps> = ({ size = 16, className = undefined, title = undefined ${
-    hasFillVariant ? `, filled = true` : ', filled = false'
-  }, ...restProps }) => {
+  }IconProps> = ({ size = 16, className = undefined, title = undefined, filled = undefined, ...restProps }) => {
   
   if (filled) {
     console.warn("<${icon.componentName} filled /> is now deprecated, please use <${
