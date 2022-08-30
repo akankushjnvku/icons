@@ -1,6 +1,6 @@
 {
   "name": "@transferwise/icons",
-  "version": "3.0.8",
+  "version": "3.1.0",
   "description": "Wise SVG icons",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -78,7 +78,7 @@
     "svgson": "^4.0.0",
     "ts-node": "^8.6.2",
     "typescript": "^4.7.3",
-    "wise-atoms": "git+ssh://git@github.com:transferwise/wise-atoms.git#3849afa07d09754466d7a425a6547b61f19a5650",
+    "wise-atoms": "git+ssh://git@github.com:transferwise/wise-atoms.git#aa743093213d8bc2d6db57acfadb5e2fd9057585",
     "yarn-deduplicate": "^5.0.0"
   },
   "resolutions": {

@@ -1,3 +1,7 @@
+# v3.1.0
+
+## Get the latst icons - BillSplit, EatingOut, Venmo, Interac, and the currency icons
+
 # v3.0.8
 
 ## This console.warn is a mess! Now it only warns when the filled prop is there, not whenever there's a filled alternative
