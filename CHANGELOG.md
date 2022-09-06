@@ -1,3 +1,7 @@
+# v3.1.1
+
+## Fix peerDependencies for pnpm users: angular is now optional
+
 # v3.1.0
 
 ## Get the latst icons - BillSplit, EatingOut, Venmo, Interac, and the currency icons
