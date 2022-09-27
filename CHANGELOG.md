@@ -1,3 +1,7 @@
+# v3.1.2
+
+## Get latest version of Wise Atoms icons
+
 # v3.1.1
 
 ## Fix peerDependencies for pnpm users: angular is now optional

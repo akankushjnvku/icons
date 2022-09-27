@@ -5629,9 +5629,9 @@ windows-release@^3.1.0:
   dependencies:
     execa "^1.0.0"
 
-"wise-atoms@git+ssh://git@github.com:transferwise/wise-atoms.git#aa743093213d8bc2d6db57acfadb5e2fd9057585":
+"wise-atoms@git+ssh://git@github.com:transferwise/wise-atoms.git#3014bf5df078df1b11d56d8cb5d73cea9fc35061":
   version "0.0.0"
-  resolved "git+ssh://git@github.com:transferwise/wise-atoms.git#aa743093213d8bc2d6db57acfadb5e2fd9057585"
+  resolved "git+ssh://git@github.com:transferwise/wise-atoms.git#3014bf5df078df1b11d56d8cb5d73cea9fc35061"
 
 word-wrap@^1.2.3:
   version "1.2.3"
